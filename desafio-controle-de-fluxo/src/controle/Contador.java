@@ -1,0 +1,33 @@
+package controle;
+
+import java.util.Scanner;
+
+public class Contador {
+	public static void main(String[] args) {
+		Scanner terminal = new Scanner(System.in);
+		
+		int parametroUm = terminal.nextInt();
+		int parametroDois = terminal.nextInt();
+		
+		
+		try {
+			contar(parametroUm, parametroDois);
+		}catch(ParametrosInvalidosException exception) {
+			System.out.println("Erro: " + exception.getMessage());
+		}
+	}
+	
+	static void contar(int parametroUm, int parametroDois)throws ParametrosInvalidosException{
+		
+		 if (parametroUm > parametroDois) {
+	            throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro.");
+	        }
+		 
+		int contagem = parametroDois - parametroUm;
+		
+		System.out.println("Imprimindo os números:");
+        for (int i = 0; i <= contagem; i++) {
+            System.out.println("Número: " + (parametroUm + i));
+        }
+	}
+}
